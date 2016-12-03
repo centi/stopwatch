@@ -1,0 +1,10 @@
+extends layout.pug
+
+block content
+	div#time
+		= seconds
+	audio#audio
+
+block scripts
+	script(src="/socket.io/socket.io.js")
+	script(src="scripts/main.js")

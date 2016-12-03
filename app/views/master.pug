@@ -1,0 +1,13 @@
+extends layout.pug
+
+block content
+	div#time
+		= seconds
+	div#controls
+		button#reset Reset
+		button#pause Pause
+		button#play Play
+
+block scripts
+	script(src="/socket.io/socket.io.js")
+	script(src="scripts/main.js")
