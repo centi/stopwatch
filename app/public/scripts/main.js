@@ -12,7 +12,22 @@
 	let audioUnlocked = false;
 	let model         = {};
 	
-	document.body.onclick = () => {
+	document.body.onclick = evt => {
+		if (evt.target.tagName.toLowerCase() !== 'button') {
+			handleFullscreen();
+		}
+		
+		if (audioElm && !audioUnlocked) {
+			unlockAudio();
+		}
+	};
+	
+	const unlockAudio = () => {
+		audioElm.load();
+		audioUnlocked = true;
+	};
+	
+	const handleFullscreen = () => {
 		let d   = document;
 		let dd  = d.documentElement;
 		let rfs = dd.requestFullscreen || dd.webkitRequestFullscreen || dd.mozRequestFullScreen || dd.msRequestFullscreen;
@@ -25,11 +40,6 @@
 			if (efs) {
 				efs.call(d);
 			}
-		}
-		
-		if (audioElm && !audioUnlocked) {
-			audioElm.load();
-			audioUnlocked = true;
 		}
 	};
 	
