@@ -14,8 +14,8 @@
 	document.body.onclick = () => {
 		let d   = document;
 		let dd  = d.documentElement;
-		let rfs = dd.requestFullscreen || dd.webkitRequestFullScreen || dd.mozRequestFullScreen || dd.msRequestFullscreen;
-		let efs = d.exitFullscreen || d.webkitExitFullScreen || d.mozExitFullScreen || d.msExitFullscreen;
+		let rfs = dd.requestFullscreen || dd.webkitRequestFullscreen || dd.mozRequestFullscreen || dd.msRequestFullscreen;
+		let efs = d.exitFullscreen || d.webkitExitFullscreen || d.mozExitFullscreen || d.msExitFullscreen;
 		let fe  = d.fullscreenElement || d.webkitFullscreenElement || d.mozFullscreenElement || d.msFullscreenElement;
 		
 		if (!fe) {
