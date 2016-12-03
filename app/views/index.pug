@@ -3,7 +3,7 @@ extends layout.pug
 block content
 	div#time
 		= seconds
-	audio#audio
+	audio#audio(autoplay)
 
 block scripts
 	script(src="/socket.io/socket.io.js")
