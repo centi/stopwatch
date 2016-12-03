@@ -3,13 +3,14 @@
 	
 	let state;
 	
-	const socket   = io.connect(location.origin);
-	const timeElm  = document.getElementById('time');
-	const audioElm = document.getElementById('audio');
-	const resetBtn = document.getElementById('reset');
-	const pauseBtn = document.getElementById('pause');
-	const playBtn  = document.getElementById('play');
-	let model      = {};
+	const socket      = io.connect(location.origin);
+	const timeElm     = document.getElementById('time');
+	const audioElm    = document.getElementById('audio');
+	const resetBtn    = document.getElementById('reset');
+	const pauseBtn    = document.getElementById('pause');
+	const playBtn     = document.getElementById('play');
+	let audioUnlocked = false;
+	let model         = {};
 	
 	document.body.onclick = () => {
 		let d   = document;
@@ -24,6 +25,11 @@
 			if (efs) {
 				efs.call(d);
 			}
+		}
+		
+		if (audioElm && !audioUnlocked) {
+			audioElm.load();
+			audioUnlocked = true;
 		}
 	};
 	
