@@ -12,11 +12,17 @@
 	let model      = {};
 	
 	document.body.onclick = () => {
-		if (!document.fullscreenElement) {
-			document.documentElement.requestFullscreen();
+		let d   = document;
+		let dd  = d.documentElement;
+		let rfs = dd.requestFullscreen || dd.webkitRequestFullScreen || dd.mozRequestFullScreen || dd.msRequestFullscreen;
+		let efs = d.exitFullscreen || d.webkitExitFullScreen || d.mozExitFullScreen || d.msExitFullscreen;
+		let fe  = d.fullscreenElement || d.webkitFullscreenElement || d.mozFullscreenElement || d.msFullscreenElement;
+		
+		if (!fe) {
+			rfs();
 		} else {
-			if (document.exitFullscreen) {
-				document.exitFullscreen();
+			if (efs) {
+				efs();
 			}
 		}
 	};
