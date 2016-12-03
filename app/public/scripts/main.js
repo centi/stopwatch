@@ -13,12 +13,12 @@
 	let model         = {};
 	
 	document.body.onclick = evt => {
-		if (evt.target.tagName.toLowerCase() !== 'button') {
+		if (audioElm) {
 			handleFullscreen();
-		}
-		
-		if (audioElm && !audioUnlocked) {
-			unlockAudio();
+			
+			if (!audioUnlocked) {
+				unlockAudio();
+			}
 		}
 	};
 	
