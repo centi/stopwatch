@@ -11,24 +11,6 @@
 	const playBtn  = document.getElementById('play');
 	let model      = {};
 	
-	const canPlayType = type => {
-		let mime;
-		
-		switch (type) {
-			case 'mp3':
-				mime = 'audio/mpeg';
-				break;
-			case 'ogg':
-				mime = 'audio/ogg';
-				break;
-		}
-		return !!(audioElm.canPlayType && audioElm.canPlayType(mime).replace(/no/, ''));
-	};
-	
-	const out = document.getElementById('out');
-	out.innerHTML += canPlayType('mp3');
-	out.innerHTML += canPlayType('ogg');
-	
 	const updateTime = seconds => {
 		seconds       = seconds || 0;
 		model.seconds = seconds;
