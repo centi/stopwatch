@@ -24,6 +24,7 @@
 	const audioPlay  = url => {
 		if (audioElm) {
 			audioElm.src = url;
+			audioElm.play();
 		}
 	};
 	const audioStop  = () => {
