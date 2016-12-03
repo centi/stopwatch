@@ -3,13 +3,23 @@
 	
 	let state;
 	
-	const socket   = io.connect(location.origin);
-	const timeElm  = document.getElementById('time');
-	const audioElm = document.getElementById('audio');
-	const resetBtn = document.getElementById('reset');
-	const pauseBtn = document.getElementById('pause');
-	const playBtn  = document.getElementById('play');
-	let model      = {};
+	const socket      = io.connect(location.origin);
+	const playTrigger = document.getElementById('play-trigger');
+	const stopTrigger = document.getElementById('stop-trigger');
+	const timeElm     = document.getElementById('time');
+	const audioElm    = document.getElementById('audio');
+	const resetBtn    = document.getElementById('reset');
+	const pauseBtn    = document.getElementById('pause');
+	const playBtn     = document.getElementById('play');
+	let model         = {};
+	
+	if (playTrigger) {
+		playTrigger.onclick = () => audioElm.play();
+	}
+	
+	if (stopTrigger) {
+		stopTrigger.onclick = () => audioElm.pause();
+	}
 	
 	const updateTime = seconds => {
 		seconds       = seconds || 0;
@@ -24,12 +34,12 @@
 	const audioPlay  = url => {
 		if (audioElm) {
 			audioElm.src = url;
-			audioElm.play();
+			playTrigger.click();
 		}
 	};
 	const audioStop  = () => {
 		if (audioElm) {
-			audioElm.pause();
+			stopTrigger.click()
 		}
 	};
 	const pad        = (str, size) => `0${str}`.substr(-2);
