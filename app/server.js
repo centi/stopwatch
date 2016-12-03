@@ -8,8 +8,8 @@ const io      = require('socket.io')(server);
 const port    = 9002;
 const sockets = [];
 
-const MAX_SECONDS = 70;
-//const MAX_SECONDS = 1200; // 20min
+//const MAX_SECONDS = 120;
+const MAX_SECONDS = 1200; // 20min
 let model         = {
 	seconds : 0,
 	state   : 'OFF'

@@ -1,0 +1,63 @@
+* {
+	margin  : 0;
+	padding : 0;
+}
+
+html, body {
+	height : 100%;
+}
+
+body {
+	display          : flex;
+	flex-direction   : column;
+	justify-content  : center;
+	align-items      : center;
+	background-color : #ed5b2f;
+	color            : #fff;
+}
+
+body, button {
+	font-family : 'Droid Sans', sans-serif;
+	font-size   : 16px;
+}
+
+#time {
+	font-family : 'Droid Sans Mono', monospace;
+	font-size   : 288px;
+}
+
+#time.master {
+	font-size : 144px;
+}
+
+#controls {
+	display        : flex;
+	flex-direction : row;
+}
+
+#controls button {
+	width               : 200px;
+	height              : 100px;
+	margin-left         : 20px;
+	font-size           : 48px;
+	border-radius       : 4px;
+	border              : 2px solid #9F2400;
+	background-color    : #FF9D81;
+	color               : #9F2400;
+	transition-property : all;
+	transition-duration : 250ms;
+}
+
+#controls button:focus {
+	box-shadow   : 0 0 5px 2px #fff;
+	border-color : #fff;
+	outline      : 0;
+}
+
+#controls button:first-child {
+	margin-left : 0;
+}
+
+#controls button#reset {
+	margin-right : 80px;
+}
