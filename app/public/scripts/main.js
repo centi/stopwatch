@@ -3,7 +3,7 @@
 	
 	let state;
 	
-	const socket   = io.connect('http://localhost:8080');
+	const socket   = io.connect(location.origin);
 	const timeElm  = document.getElementById('time');
 	const audioElm = document.getElementById('audio');
 	const resetBtn = document.getElementById('reset');
