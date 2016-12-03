@@ -16,7 +16,7 @@
 		let dd  = d.documentElement;
 		let rfs = dd.requestFullscreen || dd.webkitRequestFullscreen || dd.mozRequestFullScreen || dd.msRequestFullscreen;
 		let efs = d.exitFullscreen || d.webkitExitFullscreen || d.mozExitFullScreen || d.msExitFullscreen;
-		let fe  = d.fullscreenElement || d.webkitFullscreenElement || d.mozFullScreenElement || d.msFullscreenElement;
+		let fe  = d.fullscreenElement || d.webkitFullscreenElement || d.mozFullscreenElement || d.msFullscreenElement;
 		
 		if (!fe) {
 			rfs.call(dd);
