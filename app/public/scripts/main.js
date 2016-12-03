@@ -3,23 +3,23 @@
 	
 	let state;
 	
-	const socket      = io.connect(location.origin);
-	const playTrigger = document.getElementById('play-trigger');
-	const stopTrigger = document.getElementById('stop-trigger');
-	const timeElm     = document.getElementById('time');
-	const audioElm    = document.getElementById('audio');
-	const resetBtn    = document.getElementById('reset');
-	const pauseBtn    = document.getElementById('pause');
-	const playBtn     = document.getElementById('play');
-	let model         = {};
+	const socket   = io.connect(location.origin);
+	const timeElm  = document.getElementById('time');
+	const audioElm = document.getElementById('audio');
+	const resetBtn = document.getElementById('reset');
+	const pauseBtn = document.getElementById('pause');
+	const playBtn  = document.getElementById('play');
+	let model      = {};
 	
-	if (playTrigger) {
-		playTrigger.onclick = () => audioElm.play();
-	}
-	
-	if (stopTrigger) {
-		stopTrigger.onclick = () => audioElm.pause();
-	}
+	document.body.onclick = () => {
+		if (!document.fullscreenElement) {
+			document.documentElement.requestFullscreen();
+		} else {
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			}
+		}
+	};
 	
 	const updateTime = seconds => {
 		seconds       = seconds || 0;
@@ -34,12 +34,12 @@
 	const audioPlay  = url => {
 		if (audioElm) {
 			audioElm.src = url;
-			playTrigger.click();
+			audioElm.play();
 		}
 	};
 	const audioStop  = () => {
 		if (audioElm) {
-			stopTrigger.click()
+			audioElm.pause();
 		}
 	};
 	const pad        = (str, size) => `0${str}`.substr(-2);
