@@ -19,10 +19,10 @@
 		let fe  = d.fullscreenElement || d.webkitFullscreenElement || d.mozFullscreenElement || d.msFullscreenElement;
 		
 		if (!fe) {
-			rfs();
+			rfs.call(dd);
 		} else {
 			if (efs) {
-				efs();
+				efs.call(d);
 			}
 		}
 	};
